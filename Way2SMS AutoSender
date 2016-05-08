@@ -1,0 +1,18 @@
+VERSION BUILD=8961227 RECORDER=FX
+'Way2sms automatic message sender. First upload your contacts .csv file on the site.
+'Run this iMacro on the home page after login (url be like: site23.way2sms.com/main.action?section=s&Token=8E...Fw3&vfType=register_verify)
+SET !EXTRACT_TEST_POPUP NO
+FRAME NAME="frame"
+TAG POS=1 TYPE=SPAN ATTR=ID:contName_{{!LOOP}}&&TXT:* EXTRACT=TXT
+TAG POS=1 TYPE=SPAN ATTR=ID:contName_{{!LOOP}}
+FRAME NAME="nmeSMSFrame"
+
+'Customize message here.
+SET !VAR1 Hey<SP>{{!EXTRACT}},<SP>this<SP>is<SP>a<SP>BOT<SP>MESSAGE!
+
+TAG POS=1 TYPE=TEXTAREA FORM=ID:smsFrm ATTR=ID:message CONTENT={{!VAR1}}
+'Uncomment below line after a succesful check.
+'TAG POS=1 TYPE=INPUT:BUTTON FORM=ID:smsFrm ATTR=ID:Send
+wait seconds=1
+FRAME F=0 
+TAG POS=1 TYPE=SPAN ATTR=TXT:Close
