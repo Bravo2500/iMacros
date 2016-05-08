@@ -1,0 +1,8 @@
+'Created by Udayraj Deshmukh
+SET !EXTRACT_TEST_POPUP NO
+
+TAG POS={{!LOOP}} TYPE=a ATTR=class:UFICommentActorName EXTRACT=txt
+TAG POS={{!LOOP}} TYPE=span ATTR=class:UFICommentBody EXTRACT=txt
+
+SAVEAS TYPE=EXTRACT FOLDER=* FILE=Name_and_Comments.csv
+
